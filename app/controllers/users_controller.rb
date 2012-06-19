@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate_user!
+
 
   # before_filter :require_sign_in, :only => [:edit]
   # before_filter :require_correct_user, :only => :edit

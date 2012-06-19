@@ -31470,3 +31470,16 @@ Started GET "/users/favicon.ico" for 127.0.0.1 at 2012-06-19 17:47:06 -0500
 Processing by UsersController#show as 
   Parameters: {"id"=>"favicon"}
 Completed 401 Unauthorized in 0ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-06-19 17:56:07 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/scotthughes/.rvm/gems/ruby-1.9.3-p125@rails3tutorial2ndED/gems/devise-2.1.1/app/views/devise/shared/_links.erb (1.6ms)
+  Rendered /Users/scotthughes/.rvm/gems/ruby-1.9.3-p125@rails3tutorial2ndED/gems/devise-2.1.1/app/views/devise/sessions/new.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 115ms (Views: 77.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/favicon.ico" for 127.0.0.1 at 2012-06-19 17:56:07 -0500
+Processing by UsersController#show as 
+  Parameters: {"id"=>"favicon"}
+Completed 401 Unauthorized in 0ms
