@@ -37,7 +37,7 @@ gem 'will_paginate', '3.0.3'
 gem 'rmagick', '2.13.1'
 
 # To use ActiveModel has_secure_password
-#gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'devise'
 
 # To use Jbuilder templates for JSON
