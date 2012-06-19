@@ -13,7 +13,7 @@
       
         <a name="<%= user.full_name %>"
            <% if user.twitter.present? %> 
-              href="http://twitter.com/<%= user.twitter %>"
+              href="http://twitter.com/<%= user.twitter %>" target="_blank"
            <% else %> 
            <% end %>>
               <%= image_tag "75/#{user.user_image}", :height => 75 %>

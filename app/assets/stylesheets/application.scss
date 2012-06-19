@@ -55,21 +55,22 @@ $blue: #1d23a9;
 
 @mixin blue-gradient-alt {
 	background: rgb(62,68,242); /* Old browsers */
-	background: -moz-radial-gradient(center, ellipse cover,  rgba(62,68,242,1) 0%, rgba(25,36,140,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(62,68,242,1)), color-stop(100%,rgba(25,36,140,1))); /* Chrome,Safari4+ */
-	background: -webkit-radial-gradient(center, ellipse cover,  rgba(62,68,242,1) 0%,rgba(25,36,140,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-radial-gradient(center, ellipse cover,  rgba(62,68,242,1) 0%,rgba(25,36,140,1) 100%); /* Opera 12+ */
-	background: -ms-radial-gradient(center, ellipse cover,  rgba(62,68,242,1) 0%,rgba(25,36,140,1) 100%); /* IE10+ */
-	background: radial-gradient(center, ellipse cover,  rgba(62,68,242,1) 0%,rgba(25,36,140,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e44f2', endColorstr='#19248c',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(62,68,242,1) 0%, rgba(0,14,71,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(62,68,242,1)), color-stop(100%,rgba(0,14,71,1))); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(62,68,242,1) 0%,rgba(0,14,71,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  rgba(62,68,242,1) 0%,rgba(0,14,71,1) 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  rgba(62,68,242,1) 0%,rgba(0,14,71,1) 100%); /* IE10+ */
+	background: radial-gradient(center, ellipse cover,  rgba(62,68,242,1) 0%,rgba(0,14,71,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e44f2', endColorstr='#000e47',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }
 
 @mixin super-slow-transition {
-	-webkit-transition: all 3s ease;
-	-moz-transition: all 3s ease;
-    -ms-transition: all 3s ease;
-    -o-transition: all 3s ease;
-	transition: all 3s ease;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+	transition: all 1s ease;
 }
 
 @mixin slow-transition {
@@ -196,6 +197,9 @@ h1 {
 	h1 {
 		line-height: 40px;
 	}
+	img {
+			margin-bottom: -15px;
+		}
 }
 .main-title {
 	margin: 0;
@@ -361,7 +365,7 @@ hr {
 .team-card {
 	font-family: "futura-pt",sans-serif;
 	.card-layout {
-		height: 460px;
+		height: 370px;
 		width: 440px;
 		margin: 0 20px 20px 0;
 		padding: 10px;
@@ -392,7 +396,10 @@ hr {
 	    	}
 	    }
 	    .team-member-images {
-	    	margin-bottom: 0;
+	    	margin: 0;
+	    	img {
+	    		margin: 5px 0 10px 12px;
+	    	}
 	    }
 	    .team-members {
 	    	display: none;
@@ -435,6 +442,20 @@ hr {
 		span {
 			font-size: 16px;
 			color: $gray;
+		}
+	}
+}
+
+.profile-container {
+	h1 {
+		a {
+			color: $blue;
+		}
+		a:hover {
+			color: $red;
+		}
+		img {
+			margin-bottom: -15px;
 		}
 	}
 }
@@ -743,10 +764,11 @@ hr {
 				display: none;
 			}
 		}
-
+		.group-title {
+			margin: 10px 0;
+		}
 		h1 {
-			font-size: 28px;
-			line-height: 30px;
+			font-size: 36px;
 		}
 
 		.filter {

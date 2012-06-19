@@ -3,19 +3,19 @@ class UsersController < ApplicationController
   # before_filter :require_sign_in, :only => [:edit]
   # before_filter :require_correct_user, :only => :edit
 
-  # def require_correct_user
-  #   n = User.find(params[:id])
-  #   if n != @user
-  #     redirect_to root_url, notice: "Not authorized to edit this page"
-  #   end
-  # end
+  def require_correct_user
+    n = User.find(params[:id])
+    if n != @user
+      redirect_to root_url, notice: "Not authorized to edit this page"
+    end
+  end
 
-  # def require_sign_in
-  #   @user = User.find_by_id(session[:uid])
-  #   if @user.nil?
-  #     redirect_to sign_in_url, notice: 'Please sign in first!'
-  #   end
-  # end
+  def require_sign_in
+    @user = User.find_by_id(session[:uid])
+    if @user.nil?
+      redirect_to sign_in_url, notice: 'Please sign in first!'
+    end
+  end
 
   def index
     @users = User.paginate(:page => params[:page], :per_page => 20)
@@ -74,7 +74,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @note = Note.all
-
         respond_to do |format|
           format.html # show.html.erb
           format.json { render json: @user }
@@ -83,7 +82,6 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-
 
     respond_to do |format|
       format.html # new.html.erb
@@ -98,6 +96,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     @note = Note.new(params[:note])
+
 
     respond_to do |format|
       if @user.save

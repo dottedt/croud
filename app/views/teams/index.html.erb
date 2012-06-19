@@ -2,7 +2,7 @@
 
   <div class="sixteen columns">
     <div class="group-title main-title">
-      <h1>Code Academy</h1>
+      <h1><img src="/assets/ca_logo_60.png">Code Academy</h1>
 	 </div>
 
     <%= render 'filters' %>
@@ -15,7 +15,8 @@
 
   		<li class="card-layout">
 
-  		    <h3><a name="<%= team.name %>"><%= team.name %></a><a href="/teams/<%= team.id %>/edit" class="profile-edit"><i class="icon-pencil"></i></a></h3>
+          <h3><a name="<%= team.name %>"><%= team.name %></a>
+            <!-- <a href="/teams/<%#= team.id %>/edit" class="profile-edit"><i class="icon-pencil"></i></a></h3> -->
   		    
   		    	<div class="row team-member-images">
   					<ul>

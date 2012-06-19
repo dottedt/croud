@@ -4,7 +4,7 @@
 
 	<div class="sixteen columns profile-container">
 		<div class="group-title">
-      <h1><a href="/">Code Academy</a></h1>
+      <h1><a href="/"><img src="/assets/ca_logo_60.png">Code Academy</a></h1>
     </div>
 
 
@@ -18,7 +18,7 @@
       <div class="fifteen columns">
 
       <!-- <%# if User.find(session[:uid]).id == @user.id %> -->
-            	<a href="<%= @user.id %>/edit" class="profile-edit"><i class="icon-pencil"></i></a>
+              <!-- <a href="<%#= @user.id %>/edit" class="profile-edit"><i class="icon-pencil"></i></a> -->
            <%# else %>
 
 	  	<h2><%= @user.first_name %> <%= @user.last_name %> <br />
@@ -48,19 +48,19 @@
                 <li><a href="mailto:<%= @user.email %>"><i class="icon-mail"></i></a></li>
              <% end %>
              <% if @user.twitter.present? %>
-                <li><a href="http://twitter.com/<%= @user.twitter %>"><i class="icon-twitter"></i></a></li>
+                <li><a href="http://twitter.com/<%= @user.twitter %>"target="_blank" ><i class="icon-twitter"></i></a></li>
              <% end %>
              <% if @user.linkedin.present? %>
-                <li><a href="http://linkedin.com<%= @user.linkedin %>"><i class="icon-linkedin"></i></a></li>
+                <li><a href="http://linkedin.com<%= @user.linkedin %>" target="_blank"><i class="icon-linkedin"></i></a></li>
              <% end %>
              <% if @user.github.present? %>
-               <li><a href="http://github.com/<%= @user.github %>"><i class="icon-github"></i></a></li>
+               <li><a href="http://github.com/<%= @user.github %>" target="_blank"><i class="icon-github"></i></a></li>
              <% end %>
             </ul>
          <% else %>
          <ul>
           <% if @user.twitter.present? %>
-             <li><a href="http://twitter.com/<%= @user.twitter %>"><i class="icon-twitter"></i></a></li>
+             <li><a href="http://twitter.com/<%= @user.twitter %>"target="_blank"><i class="icon-twitter"></i></a></li>
           <% end %>
          </ul>
          <% end %>
@@ -150,13 +150,6 @@
               <p><%= @user.what_next %></p>
             <% end %>
 
-
-
-
-
-            <p>Current person is <%= "#{@user.id}" %></p>
-            <p>Current person is <%= "#{current_user.id}" %></p>
-
             <%= form_for :notes, :url =>{:controller => 'notes', :action => 'create'} do |f|  %>
               <%= f.label :note %>
               <%= f.text_field :description %><br />
@@ -172,9 +165,6 @@
                   <p><%= test.description %><p>
                <% end %>
             <% end %>
-
-
-
 
 
 
