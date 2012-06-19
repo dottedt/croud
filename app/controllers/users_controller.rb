@@ -1,24 +1,28 @@
 class UsersController < ApplicationController
 
+  before_filter :authenticate_user!
+
   # before_filter :require_sign_in, :only => [:edit]
   # before_filter :require_correct_user, :only => :edit
 
-  def require_correct_user
-    n = User.find(params[:id])
-    if n != @user
-      redirect_to root_url, notice: "Not authorized to edit this page"
-    end
-  end
+  # def require_correct_user
+  # #   n = User.find(params[:id])
+  # #   if n != @user
+  # #     redirect_to root_url, notice: "Not authorized to edit this page"
+  # #   end
+  # # end
 
-  def require_sign_in
-    @user = User.find_by_id(session[:uid])
-    if @user.nil?
-      redirect_to sign_in_url, notice: 'Please sign in first!'
-    end
-  end
+  # # def require_sign_in
+  # #   @user = User.find_by_id(session[:uid])
+  # #   if @user.nil?
+  # #     redirect_to sign_in_url, notice: 'Please sign in first!'
+  # #   end
+  # # end
 
   def index
     @users = User.paginate(:page => params[:page], :per_page => 20)
+    @users = User.search(params[:search]).paginate(:page => params[:page])
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -122,6 +126,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
 
   def destroy
     @user = User.find(params[:id])

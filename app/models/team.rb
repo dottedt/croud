@@ -1,11 +1,12 @@
 class Team < ActiveRecord::Base
   attr_accessible :description, :name, :url
-  
+
   has_many :assignments
 
   has_many :users, :through  =>  :assignments
-           
-  
+
+
+
   def student_members
     a = []
     self.assignments.each do |assignment|
@@ -25,7 +26,7 @@ class Team < ActiveRecord::Base
      end
     return a
   end
-  
-  
-  
+
+
+
 end
