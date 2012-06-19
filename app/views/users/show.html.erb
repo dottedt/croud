@@ -1,0 +1,195 @@
+
+
+<div class="container">
+
+	<div class="sixteen columns profile-container">
+		<div class="group-title">
+      <h1><a href="/">Code Academy</a></h1>
+    </div>
+
+
+<!-- Name Bar -->
+		<div class="profile row">
+        <div class="back-arrow">
+          <%= link_to :back, :title => "back" do %>
+            <i class="icon-left"></i>
+          <% end %>
+        </div><!-- end back-arrow -->
+      <div class="fifteen columns">
+
+      <!-- <%# if User.find(session[:uid]).id == @user.id %> -->
+            	<a href="<%= @user.id %>/edit" class="profile-edit"><i class="icon-pencil"></i></a>
+           <%# else %>
+
+	  	<h2><%= @user.first_name %> <%= @user.last_name %> <br />
+
+          <span><%= @user.hometown %></span></h2>
+
+           <%# end %>
+
+        <hr />
+	   </div><!-- end fifteen columns -->
+<!-- end Name Bar -->
+
+
+<!-- Image and Social Links -->
+			<div class="five columns">
+				<div class="row">
+
+        <%= image_tag "260/#{@user.user_image}", :height => 260 %>
+
+				</div><!-- end row -->
+
+
+        <div class="row contact-block">
+          <% if @user.assignments.collect(&:group_id).include?(1) %>
+            <ul>
+             <% if @user.email.present? %>
+                <li><a href="mailto:<%= @user.email %>"><i class="icon-mail"></i></a></li>
+             <% end %>
+             <% if @user.twitter.present? %>
+                <li><a href="http://twitter.com/<%= @user.twitter %>"><i class="icon-twitter"></i></a></li>
+             <% end %>
+             <% if @user.linkedin.present? %>
+                <li><a href="http://linkedin.com<%= @user.linkedin %>"><i class="icon-linkedin"></i></a></li>
+             <% end %>
+             <% if @user.github.present? %>
+               <li><a href="http://github.com/<%= @user.github %>"><i class="icon-github"></i></a></li>
+             <% end %>
+            </ul>
+         <% else %>
+         <ul>
+          <% if @user.twitter.present? %>
+             <li><a href="http://twitter.com/<%= @user.twitter %>"><i class="icon-twitter"></i></a></li>
+          <% end %>
+         </ul>
+         <% end %>
+
+        </div><!-- end row content-block-->
+<!-- end Image and Social Links -->
+
+
+<!-- Team Card -->
+  <% if !@user.teams.empty? %>
+    <div class="row featured-block">
+      <h3><i class="icon-asterisk"></i>Demo Day</h3>
+      <ul>
+        <% @user.teams.sort.each do |team| %>
+        <hr />
+          <li><h5><%= link_to(team.name, teams_url(:anchor => "#{team.name}")) %></h5></li>
+          <li><a href="http://<%= team.url %>"><%= team.url %></a></li>
+          <li><%= team.description %></li>
+          <li><%= render 'teams/student_members', :team => team %></li>
+          <% if team.sprint_managers.present? %>
+          <li><%= render 'teams/sprint_managers', :team => team %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div><!-- end row featured-block -->
+  <% end %>
+
+</div><!-- end five columns -->
+<!-- end Team Card -->
+
+
+<!-- Profile Questions -->
+			<div class="ten columns">
+				<div class="row sub-group-block">
+					<h5><%= @user.groups.collect(&:name).uniq.to_sentence %> <%= @user.quarter %></h5>
+          <h3><%= @user.courses.collect(&:name).uniq.to_sentence %></h3>
+
+        <% if @user.assignments.collect(&:group_id).include?(1) %>
+
+        <div class="mentor-block">
+          <% if @user.mentor_assigned? %>
+                <h4>My mentor: <span><a href= "/mentor#<%= @user.mentor_assigned %>"><%= @user.mentor_assigned %></a></span></h4>
+          <% end %>
+        </div>
+
+          <div class="custom-fields">
+
+              <% if @user.video.present? %>
+        			<h4></h4>
+
+                    <iframe src="<%= @user.video %>" width="580" height="326" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+        			<% end %>
+      			<% end %>
+
+            <% if @user.about_me %>
+              <p><%= @user.about_me %></p>
+            <% end %>
+
+            <% if @user.before_ca.present? %>
+              <h4>Before Code Academy</h4>
+              <p><%= @user.before_ca %></p>
+            <% end %>
+
+            <% if @user.why_ca.present? %>
+              <h4>Why Code Academy</h4>
+              <p><%= @user.why_ca %></p>
+             <% end %>
+
+            <% if @user.learned.present? %>
+              <h4>What I learned</h4>
+              <p><%= @user.learned %></p>
+            <% end %>
+
+            <!-- <%# if @user.app_idea.present? %>
+              <h4>My app idea at the beginning of the quarter</h4>
+              <p><%= @user.app_idea %></p>
+            <%# end %> -->
+
+            <% if @user.built.present? %>
+              <h4>What I built</h4>
+              <p><%= @user.built %></p>
+            <% end %>
+
+            <% if @user.what_next.present? %>
+              <h4>What's next</h4>
+              <p><%= @user.what_next %></p>
+            <% end %>
+
+
+
+
+
+            <p>Current person is <%= "#{@user.id}" %></p>
+            <p>Current person is <%= "#{current_user.id}" %></p>
+
+            <%= form_for :notes, :url =>{:controller => 'notes', :action => 'create'} do |f|  %>
+              <%= f.label :note %>
+              <%= f.text_field :description %><br />
+              <%= f.hidden_field :user_id, :value => @user.id  %>
+              <%= f.hidden_field :guest_id, :value => current_user.id  %>
+              <%= f.hidden_field :star, :value => 1  %>
+            <% end %>
+
+            <h5>Notes you've take on this person</h5>
+
+             <% @note.each do |test| %>
+               <% if test.guest_id == current_user.id && test.user_id == @user.id %>
+                  <p><%= test.description %><p>
+               <% end %>
+            <% end %>
+
+
+
+
+
+
+             <!-- <%# if @user.culture.present? %>
+              <h4>What sort of culture was I looking for from Code Academy?</h4>
+              <p><%#= @user.culture %></p>
+            <%# end %> -->
+
+          </div><!-- end custom-fields -->
+				</div>
+			</div>
+<!-- end Profile Questions -->
+
+		</div><!-- end profile -->
+</div><!-- container -->
+
+
+

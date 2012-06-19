@@ -1,0 +1,135 @@
+<%= form_for @user, :html => {:multipart => true} do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <!-- <div class="field">
+    <%#= f.label :password %><br />
+    <%#= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%#= f.label :password_confirmation, 'Confirm Password' %><br />
+    <%#= f.password_field :password_confirmation %>
+  </div> -->
+  
+  
+  <div class="field">
+    <%= f.label :hometown %><br />
+    <%= f.text_field :hometown %>
+  </div>
+  <div class="field">
+    <%= f.label :mentor_assigned, "Who is your mentor?" %><br />
+    <%= f.text_field :mentor_assigned %>
+  </div>
+  
+  <!-- <div class="field">
+    <%#= f.label :quote %><br />
+    <%#= f.text_area :quote %>
+  </div>
+  <div class="field">
+    <%#= f.label :quote_author %><br />
+    <%#= f.text_field :quote_author %>
+  </div>
+  <div class="field">
+    <%#= f.label :phone %><br />
+    <%#= f.number_field :phone %> -->
+  </div>
+  <div class="field">
+    <%= f.label :twitter, "http://twitter.com/" %><br />
+    <%= f.text_field :twitter %>
+  </div>
+  <!-- <div class="field">
+    <%#= f.label :facebook %><br />
+    <%#= f.text_field :facebook %>
+  </div> -->
+  <div class="field">
+    <%= f.label :linkedin, "http://linkedin.com" %><br />
+    <%= f.text_field :linkedin %>
+  </div>
+  <div class="field">
+    <%= f.label :github, "http://github.com/" %><br />
+    <%= f.text_field :github %>
+  </div>
+  <!-- <div class="field">
+    <%#= f.label :fav_book %><br />
+    <%#= f.text_field :fav_book %>
+  </div> -->
+  <div class="field">
+    <%= f.label :about_me, "'Personal statement'(3 sentence max) - this will appear at the top of your profile" %><br />
+    <%= f.text_area :about_me %>
+  </div>
+  <div class="field">
+    <%= f.label :before_ca, "Before Code Academy?" %><br />
+    <%= f.text_area :before_ca %>
+  </div>
+
+  <div class="field">
+    <%= f.label :why_ca, "Why Code Academy?" %><br />
+    <%= f.text_area :why_ca %>
+  </div>
+  <!-- <div class="field">
+    <%#= f.label :culture %><br />
+    <%#= f.text_area :culture %>
+  </div>
+  <div class="field">
+    <%#= f.label :app_idea %><br />
+    <%#= f.text_area :app_idea %>
+  </div>
+  <div class="field">
+    <%#= f.label :user_image %><br />
+    <%#= f.text_field :user_image %>
+  </div> -->
+  <div class="field">
+    <%= f.label :learned, "What I learned" %><br />
+    <%= f.text_area :learned %>
+  </div>
+  <div class="field">
+    <%= f.label :built, "What I built" %><br />
+    <%= f.text_area :built %>
+  </div>
+  <div class="field">
+    <%= f.label :what_next, "What's next?" %><br />
+    <%= f.text_area :what_next %>
+  </div>
+  <!-- <div class="field">
+    <%#= f.label :demo_day_team %><br />
+    <%#= f.text_field :demo_day_team %>
+  </div>
+  <div class="field">
+    <%#= f.label :website %><br />
+    <%#= f.text_field :website %>
+  </div> -->
+  <!-- <div>
+    <h2>Roles</h2>
+    <p> <%#= @user.groups.collect(&:name).uniq.to_sentence  %> </p></div>
+<div>
+    <h2>Courses</h2>
+    <p> <%#= @user.courses.collect(&:name).uniq.to_sentence %>  </p></div>
+  <div> -->
+      <%#= f.file_field :user_image %>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<li class="card-layout">
+  <a href="/teams/<%= team.id %>">
+    <%#= image_tag "sample.jpg", :height => 75 %>
+    <h3><%= team.name %><br />
+      <span>
+      Team Members
+      <%= render 'student_members', :team => @team %>
+      <h4>Sprint Manager(s)</h4>
+      <%#= render 'sprint_managers', :team => @team %>
+      </span></h3>
+  </a>
+</li>

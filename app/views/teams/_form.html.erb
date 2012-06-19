@@ -1,0 +1,30 @@
+<%= form_for @team do |f| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "Name:" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description, "Description (A sentence or two):" %><br />
+    <%= f.text_area :description, :placeholder => "A sentence or two about your team" %>
+  </div>
+  <div class="field">
+    <%= f.label :url, "URL (Check the link to make sure it works):" %><br />
+    <%= f.text_field :url %>
+  </div>
+  <h4>PLEASE CHECK THE TEAMS PAGE TO BE SURE YOUR EDITS LOOK GOOD IN THE THE BOX PROVIDED</h4>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

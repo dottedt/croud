@@ -1,0 +1,25 @@
+
+	<ul class="filter row"> 
+            <li><%= link_to 'Teams', '/teams', :class => is_active?('index') %></li>
+            <li><%= link_to 'Students', '/students', :class => is_active?('students') %></li>
+            <li><%= link_to 'Web Dev', '/webdev', :class => is_active?('webdev') %></li>
+            <li><%= link_to 'HTML/CSS', "/html_css", :class => is_active?('html') %></li>
+            <li><%= link_to 'UX', '/ux', :class => is_active?('ux') %></li>
+            <li class="vert-bar"> &#8226;</li>
+            <li><%= link_to 'Mentor', '/mentor', :class => is_active?('mentor') %></li>
+            <li><%= link_to 'Staff', '/staff', :class => is_active?('staff') %></li>
+            <li><%= link_to 'Alumni', '/alumni', :class => is_active?('alumni') %></li>
+      </ul>
+
+<div id="filter-wrap">
+      <ul id="filter"> 
+            <li><%= link_to 'Teams', '/teams', :class => is_active?('teams') %></li>
+            <li><%= link_to 'Students', '/students', :class => is_active?('index') %></li>
+            <li><%= link_to 'Web Dev', '/webdev', :class => is_active?('webdev') %></li>
+            <li><%= link_to 'HTML/CSS', "/html_css", :class => is_active?('html') %></li>
+            <li><%= link_to 'UX', '/ux', :class => is_active?('ux') %></li>
+            <li><%= link_to 'Mentor', '/mentor', :class => is_active?('mentor') %></li>
+            <li><%= link_to 'Staff', '/staff', :class => is_active?('staff') %></li>
+            <li><%= link_to 'Alumni', '/alumni', :class => is_active?('alumni') %></li>
+      </ul>
+</div><!-- end filter-wrap -->

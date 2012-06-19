@@ -1,0 +1,24 @@
+
+ <% if user.assignments.collect(&:group_id).include?(1) %>
+ 
+      <li class="four columns card-layout <%= user.groups.collect(&:name).uniq.to_sentence.downcase %> <%= user.courses.collect(&:id).uniq.join(" ") %>">
+        <a href="/users/<%= user.id %>"><%= image_tag "75/#{user.user_image}", :height => 75 %>
+          <h3><%= user.first_name %> <%= user.last_name %><br /><span><%= user.hometown %></span></h3>
+        </a>
+      </li>
+      
+  <% else %>
+  
+    <li class="four columns other-card-layout <%= user.groups.collect(&:name).uniq.to_sentence.downcase %> <%= user.courses.collect(&:id).uniq.join(" ") %>">
+      
+        <a name="<%= user.full_name %>"
+           <% if user.twitter.present? %> 
+              href="http://twitter.com/<%= user.twitter %>"
+           <% else %> 
+           <% end %>>
+              <%= image_tag "75/#{user.user_image}", :height => 75 %>
+              <h3><%= user.first_name %> <%= user.last_name %><br /><span><%= user.twitter %></span></h3>
+        </a>  
+      </li>   
+       
+  <% end %>

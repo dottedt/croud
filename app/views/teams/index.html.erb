@@ -1,0 +1,55 @@
+<div class="container">
+
+  <div class="sixteen columns">
+    <div class="group-title main-title">
+      <h1>Code Academy</h1>
+	 </div>
+
+    <%= render 'filters' %>
+
+    <hr />
+  </div><!-- end sixteen columns -->
+  <%#= @filter %>
+	  <ul class="team-card">
+	  <% @teams.each do |team| %>
+
+  		<li class="card-layout">
+
+  		    <h3><a name="<%= team.name %>"><%= team.name %></a><a href="/teams/<%= team.id %>/edit" class="profile-edit"><i class="icon-pencil"></i></a></h3>
+  		    
+  		    	<div class="row team-member-images">
+  					<ul>
+  						<% team.student_members.each do |member|%>
+  					    <li> 
+  					      <a href= "../users/<%= member.id %>" title="<%= member.first_name %> <%= member.last_name %>">
+  					         <%= image_tag "75/#{member.user_image}", :height => 75 %></a>
+  			        </li> 
+    					<% end %>
+  					</ul>
+  				</div><!-- end team-member-images -->
+
+  				<div class="team-description">
+  					<p><%= team.description %></p>
+  				</div><!-- end team-description -->
+				
+  				<div class="team-url">
+  					<p><a href="http://<%= team.url %>"><%= team.url %></a></p>
+  				</div><!-- end team-url -->
+
+  				<ul class="team-members">
+            <%= render 'teams/student_members', :team => team %>
+  				</ul>
+
+      <% if team.sprint_managers.present? %>
+  				<ul class="sprint-mgrs">
+            <%= render 'teams/sprint_managers', :team => team %>
+  				</ul>
+			<% end %>
+  		</li>
+
+  		<% end %>
+      
+	  </ul>
+
+</div><!-- container -->
+

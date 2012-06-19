@@ -1,0 +1,6 @@
+<h4>Team Members</h4>
+<ul>
+  <% team.student_members.each do |member|%>
+  <li><a href= "../users/<%= member.id %>"><%= member.first_name %> <%= member.last_name %></a></li> 
+  <% end %>
+</ul>

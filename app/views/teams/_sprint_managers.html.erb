@@ -1,0 +1,16 @@
+<!-- <ul> -->
+  <%# team.sprint_managers.each do |mgr|%>
+  <!-- <li><%#= mgr.first_name %> <%#= mgr.last_name %></li>  -->
+  <!-- <li><a href= "../users/<%#= mgr.id %>"><%#= mgr.first_name %> <%#= mgr.last_name %></a></li>  -->
+  <%# end %>
+<!-- </ul> -->
+
+
+<h4>Sprint Manager<% if team.sprint_managers.count > 1 %>s<% end %></h4>
+  <ul>
+    <% team.sprint_managers.each do |mgr|%>
+       <li><%= mgr.first_name %> <%= mgr.last_name %></li>
+       <!-- REPLACE ABOVE WITH BELOW IF WE HAVE A MEANINGFUL PLACE TO LINK TO -->
+       <!--<li><a href= "../users/<%#= mgr.id %>"><%#= mgr.first_name %> <%#= mgr.last_name %></a></li>  -->
+    <% end %>
+  </ul>

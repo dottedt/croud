@@ -1,0 +1,68 @@
+
+
+<div class="container">
+
+	<div class="sixteen columns profile-container">
+		<div class="group-title">
+      <h1><a href="/teams"><i class="icon-left"></i>Demo Day Teams</a></h1>
+    </div>
+
+		<div class="profile row">
+      <div class="fifteen columns">
+    <!-- <%# if session[:uid].present? %>
+          <a href="<%= @team.id %>/edit" class="profile-edit"><i class="icon-pencil"></i></a>
+    <%# else %>         -->
+			
+		<h2><%= @team.name %><br />
+          <span>tagline</span></h2>
+        <hr />
+       <%# end %> 
+	   </div><!-- end fifteen columns -->
+
+			<div class="five columns">
+				<div class="row">
+
+        <%#= image_tag @user.user_image_url(:large) if @user.user_image? %>
+        <%#= image_tag "50/#{@user.user_image}", :height => 50 %>
+
+				</div><!-- end row -->
+
+        <div class="row contact-block">
+            <ul>
+              <li><a href="mailto:#"><i class="icon-mail"></i></a></li>
+              <li><a href="http://twitter.com/#"><i class="icon-twitter"></i></a></li>
+              <li><i class="icon-linkedin"></i><a href="http://linkedin/in/#"></a></li>
+              <li><a href="http://github.com/#"></a><i class="icon-github"></i></li>
+            </ul>
+        </div><!-- end row content-block-->
+
+			</div><!-- end five columns -->
+
+			<div class="ten columns">
+				<div class="row sub-group-block">
+					<h5><%= @team.description%></h5>
+
+          <div class="custom-fields">
+            <h4>Website</h4>
+            <p><%= @team.url %></p>
+
+            <h4>Team Members</h4>
+            <p>
+              <%= render 'student_members', :team => @team %>
+            </p>
+
+            <h4>Sprint Managers</h4>
+            <p>
+              <%= render 'sprint_managers', :team => @team %>
+            </p>
+
+            <h4>Demo</h4>
+            <iframe src="http://player.vimeo.com/video/34800328" width="580" height="326" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> <p><a href="http://vimeo.com/34800328">Dan Allison at Code Academy</a> from <a href="http://vimeo.com/danallison">Dan Allison</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+
+          </div><!-- end custom-fields -->
+				</div>
+			</div>
+      
+		</div><!-- end profile -->
+</div><!-- container -->
+
