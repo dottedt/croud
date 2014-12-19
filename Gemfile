@@ -29,12 +29,12 @@ end
 
 gem 'jquery-rails', '~> 2.0.1'
 gem 'carrierwave'
-gem 'aws-s3', '0.6.2'
+gem 'aws-s3'
 gem 'fog'
 gem 'will_paginate', '3.0.3'
 # You need to have image magic install on your local machine and an additional program for jpeg support
 
-gem 'rmagick', '2.13.1'
+gem 'rmagick'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
